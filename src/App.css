@@ -4,5 +4,6 @@
 
 .buttonActive{
   font-weight: bold;
-  background-color: aqua;
+  background-color: rgb(60, 51, 177) !important;
+  transform: scale(1.2);
 }
