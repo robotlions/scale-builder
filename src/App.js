@@ -4,12 +4,14 @@ import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap/dist/js/bootstrap.js";
 import { keyArray } from "./Data/ScaleObjects";
 import { intToKey } from "./Data/ScaleObjects";
+import { scaleArray } from "./Data/ScaleObjects";
 
 
 function App() {
   const [currentKey, setCurrentKey] = useState(1);
   const [currentScale, setCurrentScale] = useState("Major");
   const [active, setActive] = useState(1);
+  const [activeScale, setActiveScale] = useState(1);
 
   function convertKey(interval) {
     let x = currentKey + interval;
@@ -38,6 +40,25 @@ function App() {
     );
   };
 
+  const ScaleButton = ({ id, keyName, isActiveScale, value }) => {
+    return (
+      <button
+        id={id}
+        value={value}
+        type="button"
+        className={
+          isActiveScale ? "scaleButton btn btn-secondary buttonActive" : "scaleButton btn btn-secondary"
+        }
+        onClick={(e) => {
+          setCurrentScale(Number(e.target.value));
+          setActiveScale(Number(e.target.value));
+        }}
+      >
+        {keyName}
+      </button>
+    );
+  };
+
   return (
     <div className="container App">
       <div className="row">
@@ -59,6 +80,18 @@ function App() {
         </div>
         <br />
         <br />
+        <div className="row">
+        <div className="col">
+          {scaleArray.map((item) => (
+            <ScaleButton
+              isActiveScale={activeScale === item.idNo}
+              keyName={item.scaleName}
+              value={item.idNo}
+            />
+          ))}
+        </div>
+        </div>
+        <br/><br/>
         <div className="row justify-content-center">
           <div className="col-1 intervalHeader">
         <p className="intervalHeaderText">1</p>

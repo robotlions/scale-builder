@@ -42,3 +42,47 @@ export const keyArray = [
     11: "Bb",
     12: "B",
   };
+
+  export const scaleArray = [
+    {
+        idNo: 1,
+        scaleName: "Major (Ionian)",
+        intervalAdjust: 0,
+
+    },
+    {
+        idNo: 2,
+        scaleName: "Dorian",
+        intervalAdjust: 1,
+
+    },
+    {
+        idNo: 3,
+        scaleName: "Phrygian",
+        intervalAdjust: 2,
+
+    },
+    {
+        idNo: 4,
+        scaleName: "Lydian",
+        intervalAdjust: 3,
+
+    },
+    {
+        idNo: 5,
+        scaleName: "Mixolydian",
+        intervalAdjust: 4,
+
+    },
+    {
+        idNo: 6,
+        scaleName: "Minor (Aeolian)",
+        intervalAdjust: 5,
+    },
+    {
+        idNo: 7,
+        scaleName: "Locrian",
+        intervalAdjust: 6,
+
+    },
+  ]
