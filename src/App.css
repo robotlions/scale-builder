@@ -4,6 +4,38 @@
 
 .buttonActive{
   font-weight: bold;
-  background-color: rgb(60, 51, 177) !important;
+  background-color: #014f86 !important;
   transform: scale(1.2);
+}
+
+.intervalBody{
+  background-color: #89c2d9;
+  border: 2px solid #ffffff;
+  height: 75px;
+  border-radius:5px;
+}
+
+.intervalBodyText{
+  font-weight:bold;
+  font-size: large;
+  
+}
+
+.intervalHeader{
+  background-color: #014f86;
+  border: 2px solid #ffffff;
+  border-radius:5px;
+}
+
+.intervalHeaderText{
+  color: #ffffff;
+  font-weight:bold;
+  font-size: large;
+  text-shadow: 1px 1px 1px #89c2d9;
+  margin-top:5px;
+}
+
+.keyButton{
+  margin-right:2px;
+  margin-left:2px;
 }

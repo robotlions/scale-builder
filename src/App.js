@@ -2,36 +2,9 @@ import "./App.css";
 import { useState } from "react";
 import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap/dist/js/bootstrap.js";
+import { keyArray } from "./Data/ScaleObjects";
+import { intToKey } from "./Data/ScaleObjects";
 
-const intToKey = {
-  1: "C",
-  2: "Db",
-  3: "D",
-  4: "Eb",
-  5: "E",
-  6: "F",
-  7: "Gb",
-  8: "G",
-  9: "Ab",
-  10: "A",
-  11: "Bb",
-  12: "B",
-};
-
-const keyArray = [
-  { idNo: 1, keyName: "C" },
-  { idNo: 2, keyName: "Db" },
-  { idNo: 3, keyName: "D" },
-  { idNo: 4, keyName: "Eb" },
-  { idNo: 5, keyName: "E" },
-  { idNo: 6, keyName: "F" },
-  { idNo: 7, keyName: "Gb" },
-  { idNo: 8, keyName: "G" },
-  { idNo: 9, keyName: "Ab" },
-  { idNo: 10, keyName: "A" },
-  { idNo: 11, keyName: "Bb" },
-  { idNo: 12, keyName: "B" },
-];
 
 function App() {
   const [currentKey, setCurrentKey] = useState(1);
@@ -53,7 +26,7 @@ function App() {
         value={value}
         type="button"
         className={
-          isActive ? "btn btn-secondary buttonActive" : "btn btn-secondary"
+          isActive ? "keyButton btn btn-secondary buttonActive" : "keyButton btn btn-secondary"
         }
         onClick={(e) => {
           setCurrentKey(Number(e.target.value));
@@ -67,14 +40,14 @@ function App() {
 
   return (
     <div className="container App">
-      <div class="row">
-        <div class="col">
+      <div className="row">
+        <div className="col">
           {/* <p>Current Key = {intToKey[currentKey]}</p> */}
           <p>Current Scale = {currentScale}</p>
         </div>
       </div>
-      <div class="row">
-        <div class="col">
+      <div className="row">
+        <div className="col">
           {keyArray.map((item) => (
             <KeyButton
               isActive={active === item.idNo}
@@ -86,56 +59,56 @@ function App() {
         </div>
         <br />
         <br />
-        <div class="row justify-content-center">
-          <div class="col-1">
-        <p>1</p>
+        <div className="row justify-content-center">
+          <div className="col-1 intervalHeader">
+        <p className="intervalHeaderText">1</p>
         </div>
        
-          <div class="col-1">
-        <p>2</p>
+          <div className="col-1 intervalHeader">
+        <p className="intervalHeaderText">2</p>
         </div>
       
-          <div class="col-1">
-        <p>3</p>
+        <div className="col-1 intervalHeader">
+          <p className="intervalHeaderText">3</p>
         </div>
        
-          <div class="col-1">
-        <p>4</p>
+        <div className="col-1 intervalHeader">
+          <p className="intervalHeaderText">4</p>
         </div>
-        <div class="col-1">
-        <p>5</p>
+        <div className="col-1 intervalHeader">
+        <p className="intervalHeaderText">5</p>
         </div>
-        <div class="col-1">
-        <p>6</p>
+        <div className="col-1 intervalHeader">
+        <p className="intervalHeaderText">6</p>
         </div>
-        <div class="col-1">
-        <p>7</p>
+        <div className="col-1 intervalHeader">
+        <p className="intervalHeaderText">7</p>
         </div>
         </div>
-        <div class="row justify-content-center">
-          <div class="col-1">
-        <p>{intToKey[currentKey]}</p>
+        <div className="row justify-content-center">
+          <div className="col-1 intervalBody d-flex align-items-center justify-content-center">
+        <p className="intervalBodyText">{intToKey[currentKey]}</p>
         </div>
        
-          <div class="col-1">
-        <p>{intToKey[convertKey(2)]}m</p>
+        <div className="col-1 intervalBody d-flex align-items-center justify-content-center">
+        <p className="intervalBodyText">{intToKey[convertKey(2)]}m</p>
         </div>
       
-          <div class="col-1">
-        <p>{intToKey[convertKey(4)]}m</p>
+        <div className="col-1 intervalBody d-flex align-items-center justify-content-center">
+        <p className="intervalBodyText">{intToKey[convertKey(4)]}m</p>
         </div>
        
-          <div class="col-1">
-        <p>{intToKey[convertKey(5)]}</p>
+        <div className="col-1 intervalBody d-flex align-items-center justify-content-center">
+        <p className="intervalBodyText">{intToKey[convertKey(5)]}</p>
         </div>
-        <div class="col-1">
-        <p>{intToKey[convertKey(7)]}</p>
+        <div className="col-1 intervalBody d-flex align-items-center justify-content-center">
+        <p className="intervalBodyText">{intToKey[convertKey(7)]}</p>
         </div>
-        <div class="col-1">
-        <p>{intToKey[convertKey(9)]}m</p>
+        <div className="col-1 intervalBody d-flex align-items-center justify-content-center">
+        <p className="intervalBodyText">{intToKey[convertKey(9)]}m</p>
         </div>
-        <div class="col-1">
-        <p>{intToKey[convertKey(11)]}dim</p>
+        <div className="col-1 intervalBody d-flex align-items-center justify-content-center">
+        <p className="intervalBodyText">{intToKey[convertKey(11)]}dim</p>
         </div>
         </div>
       </div>
