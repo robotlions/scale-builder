@@ -5,6 +5,7 @@ import "bootstrap/dist/js/bootstrap.js";
 import { keyArray } from "./Data/ScaleObjects";
 import { intToKey } from "./Data/ScaleObjects";
 import { scaleArray } from "./Data/ScaleObjects";
+import { intervalSteps } from "./Data/ScaleObjects";
 
 
 function App() {
@@ -12,6 +13,7 @@ function App() {
   const [currentScale, setCurrentScale] = useState("Major");
   const [active, setActive] = useState(1);
   const [activeScale, setActiveScale] = useState(1);
+  const [scaleDegree, setScaleDegree] = useState(1);
 
   function convertKey(interval) {
     let x = currentKey + interval;
@@ -20,6 +22,16 @@ function App() {
     }
     return x;
   }
+
+  function convertScaleIntervals(interval) {
+    let x = scaleDegree + interval;
+    if (x > 7) {
+      x = x - 7;
+    }
+    return x;
+  }
+
+  
 
   const KeyButton = ({ id, keyName, isActive, value }) => {
     return (
@@ -40,11 +52,12 @@ function App() {
     );
   };
 
-  const ScaleButton = ({ id, keyName, isActiveScale, value }) => {
+  const ScaleButton = ({ id, scaleName, isActiveScale, value, scaleDegree }) => {
     return (
       <button
         id={id}
         value={value}
+       
         type="button"
         className={
           isActiveScale ? "scaleButton btn btn-secondary buttonActive" : "scaleButton btn btn-secondary"
@@ -52,9 +65,10 @@ function App() {
         onClick={(e) => {
           setCurrentScale(Number(e.target.value));
           setActiveScale(Number(e.target.value));
+          setScaleDegree(scaleDegree);
         }}
       >
-        {keyName}
+        {scaleName}
       </button>
     );
   };
@@ -85,8 +99,9 @@ function App() {
           {scaleArray.map((item) => (
             <ScaleButton
               isActiveScale={activeScale === item.idNo}
-              keyName={item.scaleName}
+              scaleName={item.scaleName}
               value={item.idNo}
+              scaleDegree={item.scaleDegree}
             />
           ))}
         </div>
@@ -143,7 +158,9 @@ function App() {
         <div className="col-1 intervalBody d-flex align-items-center justify-content-center">
         <p className="intervalBodyText">{intToKey[convertKey(11)]}dim</p>
         </div>
+       
         </div>
+        1: {intervalSteps[convertScaleIntervals(0)]} 2: {intervalSteps[convertScaleIntervals(1)]} 3: {intervalSteps[convertScaleIntervals(2)]} 4: {intervalSteps[convertScaleIntervals(3)]} 5: {intervalSteps[convertScaleIntervals(4)]} 6: {intervalSteps[convertScaleIntervals(5)]} 7: {intervalSteps[convertScaleIntervals(6)]}
       </div>
   );
 }
