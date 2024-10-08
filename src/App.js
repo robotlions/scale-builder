@@ -93,8 +93,11 @@ function App() {
     );
   };
 
+  const currentDate = new Date();
+  let currentYear = currentDate.getFullYear();
+
   return (
-    <div className="container App">
+    <div className="container App raleway-body">
       <div style={{ display: "none" }}>
         <h1>
           Convert and find chords for scales and modes for guitar. Chord
@@ -258,6 +261,8 @@ function App() {
           </div>
         </div>
       </div>
+      <p style={{marginTop:50}}>© {currentYear} by <a href="https://chadmusick.com/">Chad Musick</a></p>
+
     </div>
   );
 }
