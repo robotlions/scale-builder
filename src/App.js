@@ -9,6 +9,24 @@ import { intervalSteps } from "./Data/ScaleObjects";
 import { minorSteps } from "./Data/ScaleObjects";
 import bannerImage from "./images/robotLionsGuitar.jpg";
 
+
+import { initializeApp } from "firebase/app";
+import { getAnalytics } from "firebase/analytics";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyD60HEiLCQ2O_th76pZz1dPc-I8-RydFAU",
+  authDomain: "scale-o-matic.firebaseapp.com",
+  projectId: "scale-o-matic",
+  storageBucket: "scale-o-matic.appspot.com",
+  messagingSenderId: "226544664857",
+  appId: "1:226544664857:web:089d3613da1189ad2c8588",
+  measurementId: "G-79JCGMXLEQ"
+};
+
+
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
+
 function App() {
   const [currentKey, setCurrentKey] = useState(1);
   // const [currentScale, setCurrentScale] = useState("Major");
