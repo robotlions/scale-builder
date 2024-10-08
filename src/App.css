@@ -1,6 +1,10 @@
+
+
 .App{
   text-align: center;
-  padding-top:50px;
+  
+  min-height: 125%;
+  padding-bottom: 150px;
 }
 
 .buttonActive{
@@ -49,4 +53,13 @@
 .scaleButton{
   margin-right:2px;
   margin-left:2px;
+}
+
+
+
+.raleway-headline {
+  font-family: "Raleway", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
 }

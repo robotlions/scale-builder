@@ -7,10 +7,11 @@ import { intToKey } from "./Data/ScaleObjects";
 import { scaleArray } from "./Data/ScaleObjects";
 import { intervalSteps } from "./Data/ScaleObjects";
 import { minorSteps } from "./Data/ScaleObjects";
+import bannerImage from "./images/robotLionsGuitar.jpg";
 
 function App() {
   const [currentKey, setCurrentKey] = useState(1);
-  const [currentScale, setCurrentScale] = useState("Major");
+  // const [currentScale, setCurrentScale] = useState("Major");
   const [active, setActive] = useState(1);
   const [activeScale, setActiveScale] = useState(1);
   const [scaleDegree, setScaleDegree] = useState(1);
@@ -82,7 +83,7 @@ function App() {
             : "scaleButton btn btn-secondary"
         }
         onClick={(e) => {
-          setCurrentScale(Number(e.target.value));
+          // setCurrentScale(Number(e.target.value));
           setActiveScale(Number(e.target.value));
           setScaleDegree(scaleDegree);
         }}
@@ -102,19 +103,58 @@ function App() {
           converter tool for guitar.
         </h1>
       </div>
-     
-      <div className="row">
       <div style={{ display: "none" }}>
         <h2>
-          Tonic root key scale degree chord mode finder converter tool. Find and convert mode scale key.
+          Tonic root key scale degree chord mode finder converter tool. Find and
+          convert mode scale key.
         </h2>
       </div>
+      <nav className="navbar navbar-expand-lg">
+        <div className="container-fluid">
+          <div className="navbar-brand">
+            <a href="https://robotlions.com">
+            <img
+              src={bannerImage}
+              height="100"
+              width="100"
+              className="img-fluid"
+              alt="robot lion"
+            /></a>
+          </div>
+         
+          <button
+            className="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNavAltMarkup"
+            aria-controls="navbarNavAltMarkup"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span className="navbar-toggler-icon"></span>
+          </button>
+          <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
+          
+            <div className="navbar-nav">
+              <a className="nav-link active" aria-current="page" href="https://robotlions.com">
+                robotlions.com
+              </a>
+             
+            </div>
+          </div>
+        </div>
+      </nav>
+
+      <div className="row" style={{marginTop:50}}>
+        <h2 className="raleway-headline">Scale-O-Matic 3000</h2>
+        <h5 className="raleway-headline" style={{marginBottom:50}}>Conversion Tool for Scales, Keys and Modes</h5>
         <div className="col">
           {keyArray.map((item) => (
             <KeyButton
               isActive={active === item.idNo}
               keyName={item.keyName}
               value={item.idNo}
+              key={item.idNo}
             />
           ))}
         </div>
@@ -129,6 +169,7 @@ function App() {
               scaleName={item.scaleName}
               value={item.idNo}
               scaleDegree={item.scaleDegree}
+              key={item.idNo}
             />
           ))}
         </div>
@@ -137,80 +178,86 @@ function App() {
       <br />
       <div className="row justify-content-center">
         <div className="col-3 col-lg-1 panelWrapper">
-        <div className="intervalHeader">
-          <p className="intervalHeaderText">1</p></div>
+          <div className="intervalHeader">
+            <p className="intervalHeaderText">1</p>
+          </div>
           <div className="intervalBody d-flex align-items-center justify-content-center">
-          <p className="intervalBodyText">
-            {intToKey[currentKey]}
-            {minorSteps[convertScaleIntervals(0)]}
-          </p>
+            <p className="intervalBodyText">
+              {intToKey[currentKey]} {"\n"}
+              {minorSteps[convertScaleIntervals(0)]}
+            </p>
           </div>
         </div>
 
         <div className="col-3 col-lg-1 panelWrapper">
-        <div className="intervalHeader">
-          <p className="intervalHeaderText">2</p></div>
+          <div className="intervalHeader">
+            <p className="intervalHeaderText">2</p>
+          </div>
           <div className="intervalBody d-flex align-items-center justify-content-center">
-          <p className="intervalBodyText">
-            {intToKey[currentKey]}
-            {minorSteps[convertScaleIntervals(1)]}
-          </p>
+            <p className="intervalBodyText">
+            {intToKey[convertKey(applyIntervalSteps(1))]}{"\n"}
+              {minorSteps[convertScaleIntervals(1)]}
+            </p>
           </div>
         </div>
 
         <div className="col-3 col-lg-1 panelWrapper">
-        <div className="intervalHeader">
-          <p className="intervalHeaderText">3</p></div>
+          <div className="intervalHeader">
+            <p className="intervalHeaderText">3</p>
+          </div>
           <div className="intervalBody d-flex align-items-center justify-content-center">
-          <p className="intervalBodyText">
-            {intToKey[currentKey]}
-            {minorSteps[convertScaleIntervals(2)]}
-          </p>
+            <p className="intervalBodyText">
+            {intToKey[convertKey(applyIntervalSteps(2))]}{"\n"}
+              {minorSteps[convertScaleIntervals(2)]}
+            </p>
           </div>
         </div>
 
         <div className="col-3 col-lg-1 panelWrapper">
-        <div className="intervalHeader">
-          <p className="intervalHeaderText">4</p></div>
+          <div className="intervalHeader">
+            <p className="intervalHeaderText">4</p>
+          </div>
           <div className="intervalBody d-flex align-items-center justify-content-center">
-          <p className="intervalBodyText">
-            {intToKey[currentKey]}
-            {minorSteps[convertScaleIntervals(3)]}
-          </p>
+            <p className="intervalBodyText">
+            {intToKey[convertKey(applyIntervalSteps(3))]}{"\n"}
+              {minorSteps[convertScaleIntervals(3)]}
+            </p>
           </div>
         </div>
         <div className="col-3 col-lg-1 panelWrapper">
-        <div className="intervalHeader">
-          <p className="intervalHeaderText">5</p></div>
+          <div className="intervalHeader">
+            <p className="intervalHeaderText">5</p>
+          </div>
           <div className="intervalBody d-flex align-items-center justify-content-center">
-          <p className="intervalBodyText">
-            {intToKey[currentKey]}
-            {minorSteps[convertScaleIntervals(4)]}
-          </p>
+            <p className="intervalBodyText">
+            {intToKey[convertKey(applyIntervalSteps(4))]}{"\n"}
+              {minorSteps[convertScaleIntervals(4)]}
+            </p>
           </div>
         </div>
         <div className="col-3 col-lg-1 panelWrapper">
-        <div className="intervalHeader">
-          <p className="intervalHeaderText">6</p></div>
+          <div className="intervalHeader">
+            <p className="intervalHeaderText">6</p>
+          </div>
           <div className="intervalBody d-flex align-items-center justify-content-center">
-          <p className="intervalBodyText">
-            {intToKey[currentKey]}
-            {minorSteps[convertScaleIntervals(5)]}
-          </p>
+            <p className="intervalBodyText">
+            {intToKey[convertKey(applyIntervalSteps(5))]}{"\n"}
+              {minorSteps[convertScaleIntervals(5)]}
+            </p>
           </div>
         </div>
         <div className="col-3 col-lg-1 panelWrapper">
-        <div className="intervalHeader">
-          <p className="intervalHeaderText">7</p></div>
+          <div className="intervalHeader">
+            <p className="intervalHeaderText">7</p>
+          </div>
           <div className="intervalBody d-flex align-items-center justify-content-center">
-          <p className="intervalBodyText">
-            {intToKey[currentKey]}
-            {minorSteps[convertScaleIntervals(6)]}
-          </p>
+            <p className="intervalBodyText">
+            {intToKey[convertKey(applyIntervalSteps(6))]}{"\n"}
+              {minorSteps[convertScaleIntervals(6)]}
+            </p>
           </div>
         </div>
       </div>
-      
     </div>
   );
 }
