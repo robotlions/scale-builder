@@ -1,17 +1,3 @@
-// export const intToScale = {
-//     1 : "A",
-//     2: "A#",
-//     3: "B",
-//     4: "C",
-//     5: "C#",
-//     6: "D",
-//     7: "D#",
-//     8: "E",
-//     9: "F",
-//     10: "F#",
-//     11: "G",
-//     12: "G#"
-// }
 
 export const keyArray = [
     { idNo: 1, keyName: "C" },
@@ -95,6 +81,17 @@ export const keyArray = [
     5: 2,
     6: 2,
     7: 1,
+
+  }
+
+  export const minorSteps = {
+    1: "",
+    2: "min",
+    3: "min",
+    4: "",
+    5: "",
+    6: "min",
+    7: "dim",
 
   }
     

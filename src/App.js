@@ -6,7 +6,7 @@ import { keyArray } from "./Data/ScaleObjects";
 import { intToKey } from "./Data/ScaleObjects";
 import { scaleArray } from "./Data/ScaleObjects";
 import { intervalSteps } from "./Data/ScaleObjects";
-
+import { minorSteps } from "./Data/ScaleObjects";
 
 function App() {
   const [currentKey, setCurrentKey] = useState(1);
@@ -31,7 +31,17 @@ function App() {
     return x;
   }
 
-  
+  function applyIntervalSteps(numOfDegrees) {
+    let x = 0;
+    for (let i = 0; i < numOfDegrees; i++) {
+      let sdi = scaleDegree + i;
+      if (sdi > 7) {
+        sdi = sdi - 7;
+      }
+      x = x + intervalSteps[sdi];
+    }
+    return x;
+  }
 
   const KeyButton = ({ id, keyName, isActive, value }) => {
     return (
@@ -40,7 +50,9 @@ function App() {
         value={value}
         type="button"
         className={
-          isActive ? "keyButton btn btn-secondary buttonActive" : "keyButton btn btn-secondary"
+          isActive
+            ? "keyButton btn btn-secondary buttonActive"
+            : "keyButton btn btn-secondary"
         }
         onClick={(e) => {
           setCurrentKey(Number(e.target.value));
@@ -52,15 +64,22 @@ function App() {
     );
   };
 
-  const ScaleButton = ({ id, scaleName, isActiveScale, value, scaleDegree }) => {
+  const ScaleButton = ({
+    id,
+    scaleName,
+    isActiveScale,
+    value,
+    scaleDegree,
+  }) => {
     return (
       <button
         id={id}
         value={value}
-       
         type="button"
         className={
-          isActiveScale ? "scaleButton btn btn-secondary buttonActive" : "scaleButton btn btn-secondary"
+          isActiveScale
+            ? "scaleButton btn btn-secondary buttonActive"
+            : "scaleButton btn btn-secondary"
         }
         onClick={(e) => {
           setCurrentScale(Number(e.target.value));
@@ -76,10 +95,7 @@ function App() {
   return (
     <div className="container App">
       <div className="row">
-        <div className="col">
-          {/* <p>Current Key = {intToKey[currentKey]}</p> */}
-          <p>Current Scale = {currentScale}</p>
-        </div>
+        <div className="col"></div>
       </div>
       <div className="row">
         <div className="col">
@@ -91,10 +107,10 @@ function App() {
             />
           ))}
         </div>
-        </div>
-        <br />
-        <br />
-        <div className="row">
+      </div>
+      <br />
+      <br />
+      <div className="row">
         <div className="col">
           {scaleArray.map((item) => (
             <ScaleButton
@@ -105,63 +121,83 @@ function App() {
             />
           ))}
         </div>
+      </div>
+      <br />
+      <br />
+      <div className="row justify-content-center">
+        <div className="col-1 intervalHeader">
+          <p className="intervalHeaderText">1</p>
         </div>
-        <br/><br/>
-        <div className="row justify-content-center">
-          <div className="col-1 intervalHeader">
-        <p className="intervalHeaderText">1</p>
+
+        <div className="col-1 intervalHeader">
+          <p className="intervalHeaderText">2</p>
         </div>
-       
-          <div className="col-1 intervalHeader">
-        <p className="intervalHeaderText">2</p>
-        </div>
-      
+
         <div className="col-1 intervalHeader">
           <p className="intervalHeaderText">3</p>
         </div>
-       
+
         <div className="col-1 intervalHeader">
           <p className="intervalHeaderText">4</p>
         </div>
         <div className="col-1 intervalHeader">
-        <p className="intervalHeaderText">5</p>
+          <p className="intervalHeaderText">5</p>
         </div>
         <div className="col-1 intervalHeader">
-        <p className="intervalHeaderText">6</p>
+          <p className="intervalHeaderText">6</p>
         </div>
         <div className="col-1 intervalHeader">
-        <p className="intervalHeaderText">7</p>
+          <p className="intervalHeaderText">7</p>
         </div>
-        </div>
-        <div className="row justify-content-center">
-          <div className="col-1 intervalBody d-flex align-items-center justify-content-center">
-        <p className="intervalBodyText">{intToKey[currentKey]}</p>
-        </div>
-       
-        <div className="col-1 intervalBody d-flex align-items-center justify-content-center">
-        <p className="intervalBodyText">{intToKey[convertKey(2)]}m</p>
-        </div>
-      
-        <div className="col-1 intervalBody d-flex align-items-center justify-content-center">
-        <p className="intervalBodyText">{intToKey[convertKey(4)]}m</p>
-        </div>
-       
-        <div className="col-1 intervalBody d-flex align-items-center justify-content-center">
-        <p className="intervalBodyText">{intToKey[convertKey(5)]}</p>
-        </div>
-        <div className="col-1 intervalBody d-flex align-items-center justify-content-center">
-        <p className="intervalBodyText">{intToKey[convertKey(7)]}</p>
-        </div>
-        <div className="col-1 intervalBody d-flex align-items-center justify-content-center">
-        <p className="intervalBodyText">{intToKey[convertKey(9)]}m</p>
-        </div>
-        <div className="col-1 intervalBody d-flex align-items-center justify-content-center">
-        <p className="intervalBodyText">{intToKey[convertKey(11)]}dim</p>
-        </div>
-       
-        </div>
-        1: {intervalSteps[convertScaleIntervals(0)]} 2: {intervalSteps[convertScaleIntervals(1)]} 3: {intervalSteps[convertScaleIntervals(2)]} 4: {intervalSteps[convertScaleIntervals(3)]} 5: {intervalSteps[convertScaleIntervals(4)]} 6: {intervalSteps[convertScaleIntervals(5)]} 7: {intervalSteps[convertScaleIntervals(6)]}
       </div>
+      <div className="row justify-content-center">
+        <div className="col-1 intervalBody d-flex align-items-center justify-content-center">
+          <p className="intervalBodyText">
+            {intToKey[currentKey]}
+            {minorSteps[convertScaleIntervals(0)]}
+          </p>
+        </div>
+
+        <div className="col-1 intervalBody d-flex align-items-center justify-content-center">
+          <p className="intervalBodyText">
+            {intToKey[convertKey(applyIntervalSteps(1))]}{" "}
+            {minorSteps[convertScaleIntervals(1)]}
+          </p>
+        </div>
+
+        <div className="col-1 intervalBody d-flex align-items-center justify-content-center">
+          <p className="intervalBodyText">
+            {intToKey[convertKey(applyIntervalSteps(2))]}{" "}
+            {minorSteps[convertScaleIntervals(2)]}
+          </p>
+        </div>
+
+        <div className="col-1 intervalBody d-flex align-items-center justify-content-center">
+          <p className="intervalBodyText">
+            {intToKey[convertKey(applyIntervalSteps(3))]}{" "}
+            {minorSteps[convertScaleIntervals(3)]}
+          </p>
+        </div>
+        <div className="col-1 intervalBody d-flex align-items-center justify-content-center">
+          <p className="intervalBodyText">
+            {intToKey[convertKey(applyIntervalSteps(4))]}{" "}
+            {minorSteps[convertScaleIntervals(4)]}
+          </p>
+        </div>
+        <div className="col-1 intervalBody d-flex align-items-center justify-content-center">
+          <p className="intervalBodyText">
+            {intToKey[convertKey(applyIntervalSteps(5))]}{" "}
+            {minorSteps[convertScaleIntervals(5)]}
+          </p>
+        </div>
+        <div className="col-1 intervalBody d-flex align-items-center justify-content-center">
+          <p className="intervalBodyText">
+            {intToKey[convertKey(applyIntervalSteps(6))]}{" "}
+            {minorSteps[convertScaleIntervals(6)]}
+          </p>
+        </div>
+      </div>
+    </div>
   );
 }
 
