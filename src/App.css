@@ -41,6 +41,11 @@
   margin-left:2px;
 }
 
+.panelWrapper{
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
 .scaleButton{
   margin-right:2px;
   margin-left:2px;

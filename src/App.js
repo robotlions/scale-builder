@@ -94,10 +94,21 @@ function App() {
 
   return (
     <div className="container App">
-      <div className="row">
-        <div className="col"></div>
+      <div style={{ display: "none" }}>
+        <h1>
+          Convert and find chords for scales and modes for guitar. Chord
+          converter. Chord finder. Scale converter. Scale finder. Mode
+          converter. Mode finder. Online music theory chord scale mode finder
+          converter tool for guitar.
+        </h1>
       </div>
+     
       <div className="row">
+      <div style={{ display: "none" }}>
+        <h2>
+          Tonic root key scale degree chord mode finder converter tool. Find and convert mode scale key.
+        </h2>
+      </div>
         <div className="col">
           {keyArray.map((item) => (
             <KeyButton
@@ -125,78 +136,81 @@ function App() {
       <br />
       <br />
       <div className="row justify-content-center">
-        <div className="col-1 intervalHeader">
-          <p className="intervalHeaderText">1</p>
-        </div>
-
-        <div className="col-1 intervalHeader">
-          <p className="intervalHeaderText">2</p>
-        </div>
-
-        <div className="col-1 intervalHeader">
-          <p className="intervalHeaderText">3</p>
-        </div>
-
-        <div className="col-1 intervalHeader">
-          <p className="intervalHeaderText">4</p>
-        </div>
-        <div className="col-1 intervalHeader">
-          <p className="intervalHeaderText">5</p>
-        </div>
-        <div className="col-1 intervalHeader">
-          <p className="intervalHeaderText">6</p>
-        </div>
-        <div className="col-1 intervalHeader">
-          <p className="intervalHeaderText">7</p>
-        </div>
-      </div>
-      <div className="row justify-content-center">
-        <div className="col-1 intervalBody d-flex align-items-center justify-content-center">
+        <div className="col-3 col-lg-1 panelWrapper">
+        <div className="intervalHeader">
+          <p className="intervalHeaderText">1</p></div>
+          <div className="intervalBody d-flex align-items-center justify-content-center">
           <p className="intervalBodyText">
             {intToKey[currentKey]}
             {minorSteps[convertScaleIntervals(0)]}
           </p>
+          </div>
         </div>
 
-        <div className="col-1 intervalBody d-flex align-items-center justify-content-center">
+        <div className="col-3 col-lg-1 panelWrapper">
+        <div className="intervalHeader">
+          <p className="intervalHeaderText">2</p></div>
+          <div className="intervalBody d-flex align-items-center justify-content-center">
           <p className="intervalBodyText">
-            {intToKey[convertKey(applyIntervalSteps(1))]}{" "}
+            {intToKey[currentKey]}
             {minorSteps[convertScaleIntervals(1)]}
           </p>
+          </div>
         </div>
 
-        <div className="col-1 intervalBody d-flex align-items-center justify-content-center">
+        <div className="col-3 col-lg-1 panelWrapper">
+        <div className="intervalHeader">
+          <p className="intervalHeaderText">3</p></div>
+          <div className="intervalBody d-flex align-items-center justify-content-center">
           <p className="intervalBodyText">
-            {intToKey[convertKey(applyIntervalSteps(2))]}{" "}
+            {intToKey[currentKey]}
             {minorSteps[convertScaleIntervals(2)]}
           </p>
+          </div>
         </div>
 
-        <div className="col-1 intervalBody d-flex align-items-center justify-content-center">
+        <div className="col-3 col-lg-1 panelWrapper">
+        <div className="intervalHeader">
+          <p className="intervalHeaderText">4</p></div>
+          <div className="intervalBody d-flex align-items-center justify-content-center">
           <p className="intervalBodyText">
-            {intToKey[convertKey(applyIntervalSteps(3))]}{" "}
+            {intToKey[currentKey]}
             {minorSteps[convertScaleIntervals(3)]}
           </p>
+          </div>
         </div>
-        <div className="col-1 intervalBody d-flex align-items-center justify-content-center">
+        <div className="col-3 col-lg-1 panelWrapper">
+        <div className="intervalHeader">
+          <p className="intervalHeaderText">5</p></div>
+          <div className="intervalBody d-flex align-items-center justify-content-center">
           <p className="intervalBodyText">
-            {intToKey[convertKey(applyIntervalSteps(4))]}{" "}
+            {intToKey[currentKey]}
             {minorSteps[convertScaleIntervals(4)]}
           </p>
+          </div>
         </div>
-        <div className="col-1 intervalBody d-flex align-items-center justify-content-center">
+        <div className="col-3 col-lg-1 panelWrapper">
+        <div className="intervalHeader">
+          <p className="intervalHeaderText">6</p></div>
+          <div className="intervalBody d-flex align-items-center justify-content-center">
           <p className="intervalBodyText">
-            {intToKey[convertKey(applyIntervalSteps(5))]}{" "}
+            {intToKey[currentKey]}
             {minorSteps[convertScaleIntervals(5)]}
           </p>
+          </div>
         </div>
-        <div className="col-1 intervalBody d-flex align-items-center justify-content-center">
+        <div className="col-3 col-lg-1 panelWrapper">
+        <div className="intervalHeader">
+          <p className="intervalHeaderText">7</p></div>
+          <div className="intervalBody d-flex align-items-center justify-content-center">
           <p className="intervalBodyText">
-            {intToKey[convertKey(applyIntervalSteps(6))]}{" "}
+            {intToKey[currentKey]}
             {minorSteps[convertScaleIntervals(6)]}
           </p>
+          </div>
         </div>
       </div>
+      
     </div>
   );
 }
