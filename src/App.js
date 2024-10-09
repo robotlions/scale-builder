@@ -4,6 +4,7 @@ import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap/dist/js/bootstrap.js";
 import { keyArray } from "./Data/ScaleObjects";
 import { intToKey } from "./Data/ScaleObjects";
+import { intToScale } from "./Data/ScaleObjects";
 import { scaleArray } from "./Data/ScaleObjects";
 import { intervalSteps } from "./Data/ScaleObjects";
 import { minorSteps } from "./Data/ScaleObjects";
@@ -186,7 +187,7 @@ function App() {
       </div>
       <br />
       <br />
-      <div className="row"><h4 className="raleway-headline">Chords in Scale</h4></div>
+      <div className="row"><h4 className="raleway-headline">Chords in {intToKey[currentKey]} {intToScale[activeScale]}</h4></div>
       <div className="row justify-content-center">
         <div className="col-3 col-lg-1 panelWrapper">
           <div className="intervalHeader">

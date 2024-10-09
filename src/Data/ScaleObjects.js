@@ -29,6 +29,17 @@ export const keyArray = [
     12: "B",
   };
 
+  export const intToScale = {
+    1: "Major (Ionian)",
+    2: "Dorian",
+    3: "Phrygian",
+    4: "Lydian",
+    5: "Mixolydian",
+    6: "Minor (Aeolian)",
+    7: "Locrian",
+    
+  };
+
   export const scaleArray = [
     {
         idNo: 1,
