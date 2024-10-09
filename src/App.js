@@ -130,7 +130,7 @@ function App() {
           convert mode scale key.
         </h2>
       </div>
-      <nav className="navbar navbar-expand-lg">
+      <nav className="navbar">
         <div className="container-fluid">
           <div className="navbar-brand">
             <a href="https://robotlions.com">
@@ -142,33 +142,20 @@ function App() {
               alt="robot lion"
             /></a>
           </div>
-         
-          <button
-            className="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarNavAltMarkup"
-            aria-controls="navbarNavAltMarkup"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span className="navbar-toggler-icon"></span>
-          </button>
-          <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
-          
-            <div className="navbar-nav">
-              <a className="nav-link active" aria-current="page" href="https://robotlions.com">
+            <div className="navbar-nav me-auto">
+              <a className="nav-link" aria-current="page" href="https://robotlions.com">
                 robotlions.com
               </a>
-             
             </div>
-          </div>
         </div>
       </nav>
 
       <div className="row" style={{marginTop:50}}>
         <h2 className="raleway-headline">Scale-O-Matic 3000</h2>
-        <h5 className="raleway-headline" style={{marginBottom:50}}>Conversion Tool for Scales, Keys and Modes</h5>
+        <h5 className="raleway-headline" style={{marginBottom:50}}>Chord Finder and Conversion Tool for Scales, Keys and Modes</h5>
+        <br/>
+      <h4 className="raleway-headline">Tonic</h4>
+
         <div className="col">
           {keyArray.map((item) => (
             <KeyButton
@@ -182,6 +169,8 @@ function App() {
       </div>
       <br />
       <br />
+      <div className="row"><h4 className="raleway-headline">Mode</h4></div>
+
       <div className="row">
         <div className="col">
           {scaleArray.map((item) => (
@@ -197,6 +186,7 @@ function App() {
       </div>
       <br />
       <br />
+      <div className="row"><h4 className="raleway-headline">Chords in Scale</h4></div>
       <div className="row justify-content-center">
         <div className="col-3 col-lg-1 panelWrapper">
           <div className="intervalHeader">
