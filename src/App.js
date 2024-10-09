@@ -35,6 +35,21 @@ function App() {
   const [activeScale, setActiveScale] = useState(1);
   const [scaleDegree, setScaleDegree] = useState(1);
 
+  // const intToKey = {
+  //   1: "C",
+  //   2: [2,9].includes(currentKey) ? "Db" : "C#",
+  //   3: "D",
+  //   4: [2,4,9,11,12].includes(currentKey) ? "Eb" : "D#",
+  //   5: "E",
+  //   6: "F",
+  //   7: currentKey===2 ? "Gb" : "F#",
+  //   8: "G",
+  //   9: [2,4,9].includes(currentKey) ? "Ab" : "G#",
+  //   10: "A",
+  //   11: [2,4,6,9,11].includes(currentKey) ? "Bb" : "A#",
+  //   12: "B",
+  // };
+
   function convertKey(interval) {
     let x = currentKey + interval;
     if (x > 12) {
@@ -189,7 +204,15 @@ function App() {
       <br/>
       <div className="row">
         <div className="col">
-          <h4 className="raleway-headline">Notes in Triad</h4>
+          <h4 className="raleway-headline">Notes in {intToKey[currentKey]} {intToScale[activeScale]} Scale</h4>
+          {intToKey[currentKey]} - {intToKey[convertKey(applyIntervalSteps(1))]} - {intToKey[convertKey(applyIntervalSteps(2))]} - {intToKey[convertKey(applyIntervalSteps(3))]} - {intToKey[convertKey(applyIntervalSteps(4))]} - {intToKey[convertKey(applyIntervalSteps(5))]} - {intToKey[convertKey(applyIntervalSteps(6))]}
+        </div>
+      </div>
+      <br/>
+      <br/>
+      <div className="row">
+        <div className="col">
+          <h4 className="raleway-headline">Notes in {intToKey[currentKey]} Triad in {intToScale[activeScale]}</h4>
           {intToKey[currentKey]} - {intToKey[convertKey(applyIntervalSteps(2))]} - {intToKey[convertKey(applyIntervalSteps(4))]}
         </div>
       </div>
@@ -272,7 +295,7 @@ function App() {
           </div>
           <div className="intervalBody d-flex align-items-center justify-content-center">
             <p className="intervalBodyText">
-            {currentKey == 8 ? intToKey[convertKey(applyIntervalSteps(6))+1] : intToKey[convertKey(applyIntervalSteps(6))]}{"\n"}
+            {intToKey[convertKey(applyIntervalSteps(6))]}{"\n"}
               {minorSteps[convertScaleIntervals(6)]}
             </p>
           </div>

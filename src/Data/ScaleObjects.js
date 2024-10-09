@@ -14,6 +14,21 @@ export const keyArray = [
     { idNo: 12, keyName: "B" },
   ];
 
+  // export const keyArray = [
+  //   { idNo: 1, keyName: "C" },
+  //   { idNo: 2, keyName: "Db" },
+  //   { idNo: 3, keyName: "D" },
+  //   { idNo: 4, keyName: "Eb" },
+  //   { idNo: 5, keyName: "E" },
+  //   { idNo: 6, keyName: "F" },
+  //   { idNo: 7, keyName: "F#" },
+  //   { idNo: 8, keyName: "G" },
+  //   { idNo: 9, keyName: "Ab" },
+  //   { idNo: 10, keyName: "A" },
+  //   { idNo: 11, keyName: "Bb" },
+  //   { idNo: 12, keyName: "B" },
+  // ];
+
   export const intToKey = {
     1: "C",
     2: "C#/Db",
