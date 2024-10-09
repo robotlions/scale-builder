@@ -185,6 +185,14 @@ function App() {
           ))}
         </div>
       </div>
+      <br/>
+      <br/>
+      <div className="row">
+        <div className="col">
+          <h4 className="raleway-headline">Notes in Triad</h4>
+          {intToKey[currentKey]} - {intToKey[convertKey(applyIntervalSteps(2))]} - {intToKey[convertKey(applyIntervalSteps(4))]}
+        </div>
+      </div>
       <br />
       <br />
       <div className="row"><h4 className="raleway-headline">Chords in {intToKey[currentKey]} {intToScale[activeScale]}</h4></div>
@@ -264,7 +272,7 @@ function App() {
           </div>
           <div className="intervalBody d-flex align-items-center justify-content-center">
             <p className="intervalBodyText">
-            {intToKey[convertKey(applyIntervalSteps(6))]}{"\n"}
+            {currentKey == 8 ? intToKey[convertKey(applyIntervalSteps(6))+1] : intToKey[convertKey(applyIntervalSteps(6))]}{"\n"}
               {minorSteps[convertScaleIntervals(6)]}
             </p>
           </div>

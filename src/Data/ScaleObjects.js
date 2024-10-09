@@ -37,6 +37,7 @@ export const keyArray = [
     5: "Mixolydian",
     6: "Minor (Aeolian)",
     7: "Locrian",
+    8: "Harmonic Minor",
     
   };
 
@@ -82,6 +83,7 @@ export const keyArray = [
         scaleDegree: 7,
 
     },
+   
   ]
 
   export const intervalSteps = {
