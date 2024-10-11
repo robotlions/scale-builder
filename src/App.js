@@ -34,21 +34,26 @@ function App() {
   const [active, setActive] = useState(1);
   const [activeScale, setActiveScale] = useState(1);
   const [scaleDegree, setScaleDegree] = useState(1);
+  let currentScaleArray = [];
 
-  // const intToKey = {
-  //   1: "C",
-  //   2: [2,9].includes(currentKey) ? "Db" : "C#",
-  //   3: "D",
-  //   4: [2,4,9,11,12].includes(currentKey) ? "Eb" : "D#",
-  //   5: "E",
-  //   6: "F",
-  //   7: currentKey===2 ? "Gb" : "F#",
-  //   8: "G",
-  //   9: [2,4,9].includes(currentKey) ? "Ab" : "G#",
-  //   10: "A",
-  //   11: [2,4,6,9,11].includes(currentKey) ? "Bb" : "A#",
-  //   12: "B",
-  // };
+  // function generateKey(input){
+  //   switch (input){
+  //   case 1: return currentScaleArray.includes("C#") ? "B#" : "C";;
+  //   case 2: return currentScaleArray.includes("C") ? "Db" : "C#";
+  //   case 3: return  "D";
+  //   case 4: return currentScaleArray.includes("D") ? "Eb" : "D#";
+  //   case 5: return "E";
+  //   case 6: return !currentScaleArray.includes("E") ? "E#" : "F";
+  //   case 7: return currentScaleArray.includes("F") ? "Gb" : "F#";
+  //   case 8: return "G";
+  //   case 9: return currentScaleArray.includes("G") ? "Ab" : "G#";
+  //   case 10: return "A";
+  //   case 11: return  currentScaleArray.includes("A") ? "Bb" : "A#";
+  //   case 12: return "B";
+  //   }
+  // }
+
+
 
   function convertKey(interval) {
     let x = currentKey + interval;
@@ -78,6 +83,12 @@ function App() {
     return x;
   }
 
+  function pushToCurrentScaleArray(degree){
+    currentScaleArray.push(String(intToKey[convertKey(applyIntervalSteps(degree))]))
+
+  }
+
+
   const KeyButton = ({ id, keyName, isActive, value }) => {
     return (
       <button
@@ -92,6 +103,7 @@ function App() {
         onClick={(e) => {
           setCurrentKey(Number(e.target.value));
           setActive(Number(e.target.value));
+          currentScaleArray=[];
         }}
       >
         {keyName}
@@ -120,6 +132,7 @@ function App() {
           // setCurrentScale(Number(e.target.value));
           setActiveScale(Number(e.target.value));
           setScaleDegree(scaleDegree);
+          currentScaleArray = [];
         }}
       >
         {scaleName}
@@ -228,6 +241,7 @@ function App() {
             <p className="intervalBodyText">
               {intToKey[currentKey]} {"\n"}
               {minorSteps[convertScaleIntervals(0)]}
+              {pushToCurrentScaleArray(0)}
             </p>
           </div>
         </div>
@@ -240,6 +254,7 @@ function App() {
             <p className="intervalBodyText">
             {intToKey[convertKey(applyIntervalSteps(1))]}{"\n"}
               {minorSteps[convertScaleIntervals(1)]}
+              {pushToCurrentScaleArray(1)}
             </p>
           </div>
         </div>
@@ -252,7 +267,7 @@ function App() {
             <p className="intervalBodyText">
             {intToKey[convertKey(applyIntervalSteps(2))]}{"\n"}
               {minorSteps[convertScaleIntervals(2)]}
-            </p>
+              {pushToCurrentScaleArray(2)}            </p>
           </div>
         </div>
 
@@ -264,6 +279,7 @@ function App() {
             <p className="intervalBodyText">
             {intToKey[convertKey(applyIntervalSteps(3))]}{"\n"}
               {minorSteps[convertScaleIntervals(3)]}
+              {pushToCurrentScaleArray(3)}
             </p>
           </div>
         </div>
@@ -275,6 +291,7 @@ function App() {
             <p className="intervalBodyText">
             {intToKey[convertKey(applyIntervalSteps(4))]}{"\n"}
               {minorSteps[convertScaleIntervals(4)]}
+              {pushToCurrentScaleArray(4)}
             </p>
           </div>
         </div>
@@ -286,6 +303,7 @@ function App() {
             <p className="intervalBodyText">
             {intToKey[convertKey(applyIntervalSteps(5))]}{"\n"}
               {minorSteps[convertScaleIntervals(5)]}
+              {pushToCurrentScaleArray(5)}
             </p>
           </div>
         </div>
@@ -294,15 +312,18 @@ function App() {
             <p className="intervalHeaderText">7</p>
           </div>
           <div className="intervalBody d-flex align-items-center justify-content-center">
+            {currentScaleArray[5] ? 
             <p className="intervalBodyText">
             {intToKey[convertKey(applyIntervalSteps(6))]}{"\n"}
               {minorSteps[convertScaleIntervals(6)]}
-            </p>
+              {pushToCurrentScaleArray(6)} 
+            </p> : null
+}
           </div>
         </div>
       </div>
       <p style={{marginTop:50}}>© {currentYear} by <a href="https://chadmusick.com/">Chad Musick</a></p>
-
+{console.log(currentScaleArray)}
     </div>
   );
 }
