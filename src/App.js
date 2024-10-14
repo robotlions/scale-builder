@@ -11,48 +11,15 @@ import { minorSteps } from "./Data/ScaleObjects";
 import bannerImage from "./images/robotLionsGuitar.jpg";
 
 
-import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
-
-const firebaseConfig = {
-  apiKey: "AIzaSyD60HEiLCQ2O_th76pZz1dPc-I8-RydFAU",
-  authDomain: "scale-o-matic.firebaseapp.com",
-  projectId: "scale-o-matic",
-  storageBucket: "scale-o-matic.appspot.com",
-  messagingSenderId: "226544664857",
-  appId: "1:226544664857:web:089d3613da1189ad2c8588",
-  measurementId: "G-79JCGMXLEQ"
-};
-
-
-const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
 
 function App() {
   const [currentKey, setCurrentKey] = useState(1);
-  // const [currentScale, setCurrentScale] = useState("Major");
   const [active, setActive] = useState(1);
   const [activeScale, setActiveScale] = useState(1);
   const [scaleDegree, setScaleDegree] = useState(1);
   let currentScaleArray = [];
 
-  // function generateKey(input){
-  //   switch (input){
-  //   case 1: return currentScaleArray.includes("C#") ? "B#" : "C";;
-  //   case 2: return currentScaleArray.includes("C") ? "Db" : "C#";
-  //   case 3: return  "D";
-  //   case 4: return currentScaleArray.includes("D") ? "Eb" : "D#";
-  //   case 5: return "E";
-  //   case 6: return !currentScaleArray.includes("E") ? "E#" : "F";
-  //   case 7: return currentScaleArray.includes("F") ? "Gb" : "F#";
-  //   case 8: return "G";
-  //   case 9: return currentScaleArray.includes("G") ? "Ab" : "G#";
-  //   case 10: return "A";
-  //   case 11: return  currentScaleArray.includes("A") ? "Bb" : "A#";
-  //   case 12: return "B";
-  //   }
-  // }
-
+ 
 
 
   function convertKey(interval) {
@@ -213,22 +180,8 @@ function App() {
           ))}
         </div>
       </div>
-      <br/>
-      <br/>
-      <div className="row">
-        <div className="col">
-          <h4 className="raleway-headline">Notes in {intToKey[currentKey]} {intToScale[activeScale]} Scale</h4>
-          {intToKey[currentKey]} - {intToKey[convertKey(applyIntervalSteps(1))]} - {intToKey[convertKey(applyIntervalSteps(2))]} - {intToKey[convertKey(applyIntervalSteps(3))]} - {intToKey[convertKey(applyIntervalSteps(4))]} - {intToKey[convertKey(applyIntervalSteps(5))]} - {intToKey[convertKey(applyIntervalSteps(6))]}
-        </div>
-      </div>
-      <br/>
-      <br/>
-      <div className="row">
-        <div className="col">
-          <h4 className="raleway-headline">Notes in {intToKey[currentKey]} Triad in {intToScale[activeScale]}</h4>
-          {intToKey[currentKey]} - {intToKey[convertKey(applyIntervalSteps(2))]} - {intToKey[convertKey(applyIntervalSteps(4))]}
-        </div>
-      </div>
+      
+     
       <br />
       <br />
       <div className="row"><h4 className="raleway-headline">Chords in {intToKey[currentKey]} {intToScale[activeScale]}</h4></div>
@@ -321,6 +274,19 @@ function App() {
 }
           </div>
         </div>
+        <div className="row" style={{marginTop:30}}>
+        <div className="col">
+          <h4 className="raleway-headline">Notes in {intToKey[currentKey]} {intToScale[activeScale]} Scale</h4>
+          {intToKey[currentKey]} - {intToKey[convertKey(applyIntervalSteps(1))]} - {intToKey[convertKey(applyIntervalSteps(2))]} - {intToKey[convertKey(applyIntervalSteps(3))]} - {intToKey[convertKey(applyIntervalSteps(4))]} - {intToKey[convertKey(applyIntervalSteps(5))]} - {intToKey[convertKey(applyIntervalSteps(6))]}
+        </div>
+      </div>
+    
+      <div className="row" style={{marginTop:30}}>
+        <div className="col">
+          <h4 className="raleway-headline">Notes in {intToKey[currentKey]} Triad in {intToScale[activeScale]}</h4>
+          {intToKey[currentKey]} - {intToKey[convertKey(applyIntervalSteps(2))]} - {intToKey[convertKey(applyIntervalSteps(4))]}
+        </div>
+      </div>
       </div>
       <p style={{marginTop:50}}>© {currentYear} by <a href="https://chadmusick.com/">Chad Musick</a></p>
 {console.log(currentScaleArray)}

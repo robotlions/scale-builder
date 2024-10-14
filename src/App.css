@@ -46,19 +46,15 @@
   margin-top:5px;
 }
 
-.keyButton{
+.keyButton, .scaleButton{
   margin-right:2px;
   margin-left:2px;
+  margin-bottom: 5px;
 }
 
 .panelWrapper{
   padding-left: 0 !important;
   padding-right: 0 !important;
-}
-
-.scaleButton{
-  margin-right:2px;
-  margin-left:2px;
 }
 
 
