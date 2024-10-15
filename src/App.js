@@ -64,8 +64,8 @@ function App() {
         type="button"
         className={
           isActive
-            ? "keyButton btn btn-secondary buttonActive"
-            : "keyButton btn btn-secondary"
+            ? "keyButton btn btn-secondary buttonActive rounded-0"
+            : "keyButton btn btn-secondary rounded-0"
         }
         onClick={(e) => {
           setCurrentKey(Number(e.target.value));
@@ -92,8 +92,8 @@ function App() {
         type="button"
         className={
           isActiveScale
-            ? "scaleButton btn btn-secondary buttonActive"
-            : "scaleButton btn btn-secondary"
+            ? "scaleButton btn btn-secondary buttonActive rounded-0"
+            : "scaleButton btn btn-secondary rounded-0"
         }
         onClick={(e) => {
           // setCurrentScale(Number(e.target.value));
